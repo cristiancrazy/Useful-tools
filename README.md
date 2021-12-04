@@ -23,4 +23,5 @@ and you are also allowed to choose to overwrite or append the results at the end
 | Base functionality| ✔️|
 | Single-line generator| ✔️|
 | Multi-line generator | ✔️|
-| Works with -(x) values | ✔️|
+| Works with -(x) values (INTs MODE)| ✔️|
+| customized user settings | ✔️|
