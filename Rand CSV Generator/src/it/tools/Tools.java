@@ -21,6 +21,15 @@ import java.io.BufferedWriter;
 //CLASS
 public class Tools {
 	
+	//EXPORT DATA ON FILE (SETTINGS)
+	private static char separator = ';';
+
+
+	public static void setSeparator(char separator) {
+		Tools.separator = separator;
+	}
+
+
 	//EXPORT DATA ON FILE
 	public static void resultWriter(String path, ArrayList<? extends Number> toExport, boolean append){
 			
@@ -28,7 +37,7 @@ public class Tools {
 			ArrayList<String> results = new ArrayList<>(toExport.stream().map(i -> i.toString()).collect(Collectors.toList()));
 				
 			for(String s : results){
-				writer.write(s.toString() + ";");
+				writer.write(s.toString() + separator);
 			}
 			
 			toExport.clear(); //Remove all elements

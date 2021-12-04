@@ -12,7 +12,7 @@ package it.tools;
 
 //IMPORT
 import java.util.ArrayList;
-import java.util.stream.*; //Stream API
+
 import java.util.Random; //Random N generator
 
 //CLASS
@@ -26,15 +26,8 @@ public class Generator {
 
         for(long i = 0; i < generateN; ++i)
         { 
-            output.add( min + (x.nextLong() % (max+1-min) ) ); //Filling
+            output.add( min + ( (positive_only)? Math.abs(x.nextLong()% (max+1-min)) : (x.nextLong()% (max+1-min)) ) ); //Filling
         }
-
-        if(positive_only){
-            LongStream outputabs = output.stream().mapToLong(i -> Math.abs(i));
-            output.clear(); //Delete all items in the ArrayList
-            outputabs.forEach(i -> output.add(i)); //Re-fill the ArrayList
-        }
-        
         System.gc(); //Suggest to use Garbage Collector
 
         return output;
@@ -48,13 +41,7 @@ public class Generator {
 
         for(long i = 0; i < generateN; ++i)
         { 
-            output.add( min + (x.nextDouble() * ((min != 0)? (max/min) : max)) ); //Filling
-        }
-
-        if(positive_only){
-            DoubleStream outputabs = output.stream().mapToDouble(i -> Math.abs(i));
-            output.clear(); //Delete all items in the ArrayList
-            outputabs.forEach(i -> output.add(i)); //Re-fill the ArrayList
+            output.add(min + ( (positive_only)? Math.abs(x.nextDouble() * ((min != 0)? (max/min) : max)) : (x.nextDouble() * ((min != 0)? (max/min) : max)) )); //Filling
         }
         
         System.gc(); //Suggest to use Garbage Collector
@@ -62,8 +49,6 @@ public class Generator {
         return output;
     }
 
-
-    //TODO: Check and implement these 2 functions.
 
     //ArrayList matrix number generator (long)
     public static ArrayList<ArrayList<Long>> getMatrixLONG(long generateN, long min, long max, boolean positive_only){
