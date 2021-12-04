@@ -12,14 +12,15 @@
 **Generate a vector or a square matrix of integer/double and export it on a .csv file.**
 
 You can set the range of the number generated, the separator type(; or ,)
-and you are also allowed to choose to erase results, 
-overwrite results or append results at the end of the file.  *You will find this tool under the folder "Rand CSV Generator".*
+and you are also allowed to choose to overwrite or append the results at the end of the file.  
+*You will find this tool under the folder "Rand CSV Generator".*
 
 **This tool uses a lot of RAM during the results generation.**
 
-| App Features   |      State      |
-|------------|:---------------------:|
-| vector number generator| ✔️         |
-| export results on .csv| ✔️         |
-| matrix numer generator|    :x:    |
-| custom settings | ⚠️      |
+| Tool 1 Features   |      State      |
+|-------------------|:---------------:|
+| App feedback | ✔️|
+| Base functionality| ✔️|
+| Single-line generator| ✔️|
+| Multi-line generator | ✔️|
+| Works with -(x) values | ✔️|
