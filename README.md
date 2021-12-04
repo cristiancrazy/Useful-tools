@@ -16,3 +16,10 @@ and you are also allowed to choose to erase results,
 overwrite results or append results at the end of the file.  *You will find this tool under the folder "Rand CSV Generator".*
 
 **This tool uses a lot of RAM during the results generation.**
+
+| App Features   |      State      |
+|------------|:---------------------:|
+| vector number generator| ✔️         |
+| export results on .csv| ✔️         |
+| matrix numer generator|    :x:    |
+| custom settings | ⚠️      |
