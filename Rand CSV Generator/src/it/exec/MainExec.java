@@ -35,7 +35,7 @@ public class MainExec{
      * The highest number for DOUBLE option is
      * (maxValueGenerated)/2
      **************************************************/
-    final static long maxValueGenerated = Integer.MAX_VALUE;
+    final static long maxValueGenerated = Short.MAX_VALUE;
 
 
     //The heart of this application
@@ -246,8 +246,7 @@ public class MainExec{
 
         mainFrame = WinFrameGen.addMenuBar(true, mainFrame, "?", 
                     new String[]{"About"}, new ActionListener[]{i -> aboutFrame.setVisible(true)});
-        
-    
+            
         mainFrame.setVisible(true);
 
     }

@@ -41,6 +41,25 @@ public class Tools {
 
 	}
 
+
+	public static void resultWriter(String path, ArrayList<? extends ArrayList<? extends Number>> toExport){
+		for(var i : toExport){
+			resultWriter(path, i, true);
+
+			//Add new line on file
+			try(BufferedWriter writer = new BufferedWriter(new FileWriter(new File(path), true))){
+				writer.write('\n');
+			}catch(IOException e){
+				System.err.println("File I/O Error");
+			}catch(Exception e){
+				System.err.println("Error");
+			}
+
+		}
+	}
+
+
+
 	//ERASE DATA
 	public static void resultErase(String path){
 		

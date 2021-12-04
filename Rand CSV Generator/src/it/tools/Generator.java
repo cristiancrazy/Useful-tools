@@ -18,6 +18,7 @@ import java.util.Random; //Random N generator
 //CLASS
 public class Generator {
     
+
     //ArrayList number generator (long)
     public static ArrayList<Long> getDataLONG(long generateN, long min, long max, boolean positive_only){
         ArrayList<Long> output = new ArrayList<>();
@@ -39,6 +40,7 @@ public class Generator {
         return output;
     }
 
+
     //ArrayList number generator (double)
     public static ArrayList<Double> getDataDOUBLE(long generateN, long min, long max, boolean positive_only){
         ArrayList<Double> output = new ArrayList<>();
@@ -59,5 +61,36 @@ public class Generator {
         
         return output;
     }
+
+
+    //TODO: Check and implement these 2 functions.
+
+    //ArrayList matrix number generator (long)
+    public static ArrayList<ArrayList<Long>> getMatrixLONG(long generateN, long min, long max, boolean positive_only){
+        ArrayList<ArrayList<Long>> output = new ArrayList<>();
+
+        for(int i = 0; i < generateN; ++i){
+            output.add(getDataLONG(generateN, min, max, positive_only));
+        }
+        
+        System.gc(); //Suggest to use Garbage Collector
+
+        return output;
+    }
+
+
+    //ArrayList matrix number generator (double)
+    public static ArrayList<ArrayList<Double>> getMatrixDOUBLE(long generateN, long min, long max, boolean positive_only){
+        ArrayList<ArrayList<Double>> output = new ArrayList<>();
+
+        for(int i = 0; i < generateN; ++i){
+            output.add(getDataDOUBLE(generateN, min, max, positive_only));
+        }
+        
+        System.gc(); //Suggest to use Garbage Collector
+
+        return output;
+    }
+
 
 }
