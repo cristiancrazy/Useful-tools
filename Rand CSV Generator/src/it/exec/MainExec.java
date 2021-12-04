@@ -16,11 +16,6 @@ package it.exec;
 //IMPORT
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.Random;
-import java.util.ArrayList;
-
-import java.util.stream.DoubleStream;
-import java.util.stream.LongStream;
 
 import it.graphics.*;
 import it.graphics.WinFrameGen.e_mode;
@@ -40,47 +35,9 @@ public class MainExec{
      * The highest number for DOUBLE option is
      * (maxValueGenerated)/2
      **************************************************/
-    final static long maxValueGenerated = 25000000;
+    final static long maxValueGenerated = Integer.MAX_VALUE;
 
 
-    //METHODS
-    
-    private static ArrayList<Long> getDataLONG(long generateN, long min, long max, boolean positive_only){
-        ArrayList<Long> output = new ArrayList<>();
-        Random x = new Random();
-
-        for(long i = 0; i < generateN; ++i)
-        { 
-            output.add( min + (x.nextLong() % (max+1-min) ) ); //Filling
-        }
-
-        if(positive_only){
-            LongStream outputabs = output.stream().mapToLong(i -> Math.abs(i));
-            output.clear(); //Delete all items in the ArrayList
-            outputabs.forEach(i -> output.add(i)); //Re-fill the ArrayList
-        }
-
-        return output;
-    }
-
-    private static ArrayList<Double> getDataDOUBLE(long generateN, long min, long max, boolean positive_only){
-        ArrayList<Double> output = new ArrayList<>();
-        Random x = new Random();
-
-        for(long i = 0; i < generateN; ++i)
-        { 
-            output.add( min + (x.nextDouble() * ((min != 0)? (max/min) : max)) ); //Filling
-        }
-
-        if(positive_only){
-            DoubleStream outputabs = output.stream().mapToDouble(i -> Math.abs(i));
-            output.clear(); //Delete all items in the ArrayList
-            outputabs.forEach(i -> output.add(i)); //Re-fill the ArrayList
-        }
-
-        return output;
-    }
-    
     //The heart of this application
     private static String Computefunctionality(String path, String elementsN, long min, long max, boolean integerMode, boolean doubleMode, boolean positive_only, boolean erase){ 
         String state = "OK";
@@ -100,7 +57,7 @@ public class MainExec{
                     return "MAX VAL: " + (maxValueGenerated);
                 }
 
-                Tools.resultWriter(path, getDataLONG(Long.parseLong(elementsN), min, max, positive_only), true);
+                Tools.resultWriter(path, Generator.getDataLONG(Long.parseLong(elementsN), min, max, positive_only), true);
             }
 
             if(doubleMode){ //DOUBLE
@@ -109,7 +66,7 @@ public class MainExec{
                     return "MAX VAL: " + (maxValueGenerated/2);
                 }
 
-                Tools.resultWriter(path, getDataDOUBLE(Long.parseLong(elementsN), min, max, positive_only), true);
+                Tools.resultWriter(path, Generator.getDataDOUBLE(Long.parseLong(elementsN), min, max, positive_only), true);
             }
             
         }else{
@@ -160,7 +117,7 @@ public class MainExec{
         submitButton.setForeground(Color.GREEN);
         submitButton.setBounds(20, 175, 120, 25);
         
-        //Execute command
+        //Info label
         Label res_label = new Label();
         res_label.setBounds(20, 200, 120, 25);
         res_label.setForeground(Color.BLUE);
@@ -209,9 +166,10 @@ public class MainExec{
         for(Label i : info){ //Placing on Frame
             i.setBounds(25, h_infoLbl, 200, 25);
             i.setAlignment(Label.CENTER);
-            aboutFrame.add(i);
             h_infoLbl += 25; //Increment height for next label
         }
+        aboutFrame.addMultipleComponents(info);
+
 
         return aboutFrame;
     }
@@ -223,6 +181,52 @@ public class MainExec{
         settingsFrame.setColor(Color.BLACK, Color.RED); //Set frame colors
         
         /* =========== [COMPONENTS] =========== */
+
+        //Label
+        Label title_label = new Label("Settings:");
+        title_label.setFont(new Font("Arial", Font.BOLD, 16));
+        title_label.setBounds(0, 35, 250, 25);
+        title_label.setAlignment(Label.CENTER);
+
+        Label[] setVal_label = new Label[]{
+            new Label("MIN VALUE:"),
+            new Label("MAX VALUE:"),
+            new Label("SEPARATOR: ")
+        };
+        int hVal = 50;
+        for(Label i : setVal_label){
+            i.setBounds(25, (hVal+=35), 75, 25);
+        }
+
+        //TextFields
+        TextField[] setVal_fields = new TextField[]{
+            new TextField(),
+            new TextField()
+        };
+
+        hVal = 50;
+        for(TextField i : setVal_fields){
+            i.setBounds(120, (hVal+=35), 100, 25);
+            
+        }
+
+        //Radio checkbox
+        CheckboxGroup separatorType = new CheckboxGroup();
+        
+        Checkbox separator1 = new Checkbox(";", separatorType, true);
+        separator1.setForeground(Color.WHITE);
+        separator1.setFont(new Font("Arial", Font.PLAIN, 16));
+        separator1.setBounds(120, 155, 25, 25);
+
+        Checkbox separator2 = new Checkbox(",", separatorType, false);
+        separator2.setForeground(Color.WHITE);
+        separator2.setFont(new Font("Arial", Font.PLAIN, 16));
+        separator2.setBounds(160, 155, 25, 25);
+        
+        settingsFrame.addMultipleComponents(title_label, separator1, separator2);
+        settingsFrame.addMultipleComponents(setVal_label);
+        settingsFrame.addMultipleComponents(setVal_fields);
+
 
         return settingsFrame; 
     }
