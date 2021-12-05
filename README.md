@@ -7,13 +7,14 @@
 
 > ***VCMT-RAND (TOOL 1)***
 
-![vcmt_rand](https://user-images.githubusercontent.com/49765306/144516656-f9b5c2ec-d15c-49b1-8373-8dc733588d80.PNG)
-
 **Generate a vector or a square matrix of integer/double and export it on a .csv file.**
+
+![Tool1](https://user-images.githubusercontent.com/49765306/144744198-8dacedb8-6690-4d40-8ee4-bb761c5f6768.PNG)
+
 
 You can set the range of the number generated, the separator type(; or ,)
 and you are also allowed to choose to overwrite or append the results at the end of the file.  
-*You will find this tool under the folder "Rand CSV Generator".*
+*You will find this tool under the folder "Tool 1 - Rand CSV Generator".*
 
 **This tool uses a lot of RAM during the results generation.**
 
