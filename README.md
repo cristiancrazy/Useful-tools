@@ -14,7 +14,7 @@
 
 You can set the range of the number generated, the separator type(; or ,)
 and you are also allowed to choose to overwrite or append the results at the end of the file.  
-*You will find this tool under the folder "Tool 1 - Rand CSV Generator".*
+*You will find this tool under the folder "Rand CSV Generator".*
 
 **This tool uses a lot of RAM during the results generation.**
 
