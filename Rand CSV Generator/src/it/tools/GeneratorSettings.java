@@ -14,7 +14,11 @@
  ****************************************/
 package it.tools;
 
-public class GeneratorSettings {
+//IMPORT
+import java.io.Serializable; //To export settings
+
+//CLASS
+public class GeneratorSettings implements Serializable{
     //Instance Variables
 
     

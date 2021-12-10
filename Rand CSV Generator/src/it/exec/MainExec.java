@@ -17,6 +17,7 @@ package it.exec;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+
 import it.graphics.*;
 import it.graphics.WinFrameGen.e_mode;
 import it.tools.*;
@@ -25,6 +26,10 @@ import it.tools.GeneratorSettings.genMode;
 
 //CLASS
 public class MainExec{
+
+    //App Version
+    public static String app_update = "MID DEC21";
+
     
     private static WinFrameGen WindowMAIN(){ //GUI SETUP [WINDOW "MAIN"]
         //GUI SETUP
@@ -76,6 +81,14 @@ public class MainExec{
 
         //Execute action
         submitButton.addActionListener(i ->{
+            //Remove the past feedback
+            try{
+                res_label.setText("");
+                Thread.sleep(100); //Delay
+            }catch(InterruptedException e){ };
+            
+
+
             //Feedback string
             String feedback = "";
             
@@ -101,7 +114,11 @@ public class MainExec{
                     throw new Exception("MAX LIMIT: "+GeneratorSettings.getMaximumLimit());
                 
                 GeneratorSettings.setElementsN(value, mode, Erase.getState());
+                
+                timeinfo time = new timeinfo(); //Record time
                 feedback = GeneratorSettings.ComputeFunctionality(); // <-- The heart 
+                
+                feedback += (" - " + time); //End record time
 
             }catch(NumberFormatException e){
                 feedback = "INVALID FORMAT";
@@ -136,7 +153,7 @@ public class MainExec{
         info[1] = new Label("[Under MIT Licence]");
         info[1].setForeground(Color.YELLOW); //Set Text Color
 
-        info[2] = new Label("Version: 1.0");
+        info[2] = new Label("Version: " + app_update);
 
         info[3] = new Label("Utility app: generate and");
         info[3].setForeground(Color.GREEN); //Set Text Color
@@ -145,7 +162,8 @@ public class MainExec{
         info[4].setForeground(Color.GREEN); //Set Text Color
         
         info[5] = new Label("github.com/cristiancrazy");
-        info[5].setForeground(Color.CYAN); //Set Text Color
+        info[5].setFont(new Font("Arial", Font.BOLD, 12));
+        info[5].setForeground(Color.WHITE); //Set Text Color
         
         int h_infoLbl = 60;  //Start label height
         for(Label i : info){ //Placing on Frame
@@ -270,6 +288,13 @@ public class MainExec{
             }
 
             feedback_label.setText(feedback);
+            
+            //Delay - Feedback remove
+            try{
+                Thread.sleep(2500); 
+                feedback_label.setText("");
+            }catch(InterruptedException e){ } 
+
         });
 
         settingsFrame.addMultipleComponents(title_label, separator1, separator2, positive, positive_label, validate, feedback_label);

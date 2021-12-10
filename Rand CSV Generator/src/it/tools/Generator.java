@@ -22,11 +22,15 @@ public class Generator {
     //ArrayList number generator (long)
     public static ArrayList<Long> getDataLONG(long generateN, long min, long max, boolean positive_only){
         ArrayList<Long> output = new ArrayList<>();
+        long number;
         Random x = new Random();
 
+
         for(long i = 0; i < generateN; ++i)
-        { 
-            output.add( min + ( (positive_only)? Math.abs(x.nextLong()% (max+1-min)) : (x.nextLong()% (max+1-min)) ) ); //Filling
+        {
+            number = ( (positive_only)? (Math.abs(x.nextLong() % (max+1L-min))) : (x.nextLong() % (max+1L-min)) );
+
+            output.add((number > 0) ? number + min : number - min); //Filling
         }
         System.gc(); //Suggest to use Garbage Collector
 
@@ -37,11 +41,16 @@ public class Generator {
     //ArrayList number generator (double)
     public static ArrayList<Double> getDataDOUBLE(long generateN, long min, long max, boolean positive_only){
         ArrayList<Double> output = new ArrayList<>();
+        double number;
         Random x = new Random();
+
+        
 
         for(long i = 0; i < generateN; ++i)
         { 
-            output.add(min + ( (positive_only)? Math.abs(x.nextDouble() * ((min != 0)? (max/min) : max)) : (x.nextDouble() * ((min != 0)? (max/min) : max)) )); //Filling
+            number = ( ( x.nextDouble()*(max-min)) + min );
+
+            output.add(number); //Filling
         }
         
         System.gc(); //Suggest to use Garbage Collector
