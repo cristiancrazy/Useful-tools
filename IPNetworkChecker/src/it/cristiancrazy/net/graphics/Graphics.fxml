@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="270.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.cristiancrazy.net.graphics.GraphicsController">
+   <children>
+      <Label layoutX="15.0" layoutY="14.0" text="Network Utility: IPv4s Check" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="IPv4Box" layoutX="15.0" layoutY="81.0" prefHeight="26.0" prefWidth="241.0" promptText="IPv4 Address to check" />
+      <TextField fx:id="MaskBox" layoutX="14.0" layoutY="140.0" prefHeight="26.0" prefWidth="241.0" promptText="Subnet Mask (dotted decimal)" />
+      <Text fill="WHITE" layoutX="15.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IPv4:" />
+      <Text fill="WHITE" layoutX="15.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subnet Mask:" />
+      <Button layoutX="85.0" layoutY="195.0" mnemonicParsing="false" onAction="#CheckButton" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: red; -fx-font-weight: bold;" text="Check" />
+   </children>
+</AnchorPane>
