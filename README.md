@@ -1,4 +1,10 @@
 # Useful tools
+
+![mostly used language](https://img.shields.io/github/languages/top/cristiancrazy/Useful-tools)
+![last commit](https://img.shields.io/github/last-commit/cristiancrazy/Useful-tools)
+![last release](https://img.shields.io/github/v/release/cristiancrazy/Useful-tools)
+![licence](https://img.shields.io/github/license/cristiancrazy/Useful-tools)
+
 **This repo contains some useful tools, written in Java/C++/C.**
 
 ## Third publishing (April 2022)
