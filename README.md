@@ -7,6 +7,22 @@
 
 **This repo contains some useful tools, written in Java/C++/C.**
 
+## Fourth publishing (June 2022)
+Added Arduino based **IR Powerpoint Clicker**.
+### ***ARDUINO IR CLICKER (TOOL 4)***
+**Control your Powerpoint slide presentation with an IR Remote**
+
+If you have to present a Powerpoint project, this allows you to be more flexible, leaving the computer area, and controlling remotely your presentation. I have tested personally the sketch during an italian school's project, and It was a success. The sketch allows you to bind more keys than the four already defined.
+
+**IMPORTANT: *Remember to bind in the source code your IR codes***
+| Macro Defined     |  Bound Key      |
+|-------------------|:---------------:|
+| BEGIN_PPT         |        F5       |
+| EXIT_PPT          |       ESC       |
+| PREVIOUS_SLIDE    |  LEFT-ARROW     |
+| NEXT_SLIDE        | RIGHT-ARROW     |
+******************************************************************
+
 ## Third publishing (April 2022)
 Small update of the previous published version.
 ### ***EEPROM TOOLS (TOOL 3)***
@@ -18,7 +34,7 @@ When you have to save a state or a value permanently, you could use a flash memo
 Some MCUs prototyping boards could have a built-in EEPROM (Commonly 1 KB for Arduino's boards).
 Unlike the built-in EEPROM, you could use instead an I2C EEPROM.
 This sketch allows you to check and write data on the external EEPROM (***series AT24Cxxx***).
-
+******************************************************************
 
 ## Second publishing (February 2022)
 Small update of the previous published version.
@@ -32,7 +48,7 @@ the network ip (net name), and the broadcast ip address.
 This is a restyle of an old application that I deployed at the of November, but I've never published it.
 This tool is intended for educational purposes (because is a bit poor of functionality).
 If you're an expert, obviously, you should avoid this tool.
-
+******************************************************************
 
 ## First publishing (December 2021)
 
@@ -59,5 +75,4 @@ and you are also allowed to choose to overwrite or append the results at the end
 | Multi-line generator | ✔️|
 | Works with -(x) values (INTs MODE)| ✔️|
 | customized user settings | ✔️|
-
-
+******************************************************************
