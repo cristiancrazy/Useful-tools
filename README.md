@@ -7,6 +7,21 @@
 
 **This repo contains some useful tools, written in Java/C++/C.**
 
+## Fifth publishing (January 2024)
+Added Wine App for Rootlet authentication.
+### ***WINE APP FOR DESKTOP (INDIPENDENT APP)***
+Required to all Collaborator's user which would use advanced 2FA Rootlet
+services. The Android app could be found directly on the <a href="https://rootlet.it/auth">login page</a>,
+looking down on the page footer (access with "*Smartcard*")
+
+**IMPORTANT: JRE (or JDK for developers) version 17 is REQUIRED to run the app**
+
+**IMPORTANT: 1. Unzip compressed archive; 2. Run the bash script under /bin folder (or .sh on linux/mac) to start the app.**
+
+**NOTE: The source code is currently private to prevent and avoid security breaches or issues.**
+
+![WineApp 1 0](https://github.com/cristiancrazy/Useful-tools/assets/49765306/ab0daf20-8898-4de3-94bb-6d2b80422450)
+
 ## Fourth publishing (June 2022)
 Added Arduino based **IR Powerpoint Clicker**.
 ### ***ARDUINO IR CLICKER (TOOL 4)***
